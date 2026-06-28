@@ -7,7 +7,7 @@ class_name ProceduralTerrain
 @export var noise : FastNoiseLite :
 	set(val):
 		noise = val
-@export var map_size := Vector2i(128, 128) :
+@export var map_size := Vector2i(256, 256) :
 	set(val):
 		map_size = val
 @export_tool_button("Reload noise") var reload_noise_action = load_noise

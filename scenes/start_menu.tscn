@@ -35,13 +35,24 @@ anchor_right = 0.8
 anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Title" type="RichTextLabel" parent="VBoxContainer" unique_id=1697583201]
 layout_mode = 2
 mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "BlahaJET"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="RichTextLabel" parent="VBoxContainer" unique_id=654443960]
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[font_size=20]Crash out but with a Blahaj model! WASD for moving and doing literally anything if you want to crash :P"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1

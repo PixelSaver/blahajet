@@ -5,11 +5,13 @@ class_name Jet
 @export var spring_strength := 1.0
 @export var spring_damping := 0.2
 @export var upright_strength := 10.
-@export var upright_damping := 0.2
+@export var upright_damping := 2.5
 @export var raycasts: Array[RayCast3D]
+@export var lateral_drag := 0.05
+@export var lean_strength := 6.0
 @export var mult := 1.
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var v = Input.get_vector("d", "a", "s", "w")
 	var b = self.global_transform.basis
 	var local_vel = b.inverse() * linear_velocity
@@ -32,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 		var damping_force = -vel_along_spring * spring_damping
 		
 		self.apply_force(b.y * (spring_force + damping_force), r.position)
-	print("Comps: %s" % str(comps))
+	#print("Comps: %s" % str(comps))
 	
 	# Upright
 	var axis = b.y.cross(Vector3.UP)
@@ -41,6 +43,13 @@ func _physics_process(_delta: float) -> void:
 	apply_torque(axis * upright_strength + angular_damping)
 	
 	self.apply_central_force(-b.z * v.y * 50)
-	# Bank
 	apply_torque(Vector3.UP * v.x * 10.)
 	
+	
+	# lateral drag
+	# sideways component
+	var side_vel_world : Vector3 = b.x * local_vel.x
+	var drag_impulse: Vector3 = -side_vel_world * lateral_drag * mass * delta * 60.0
+	
+	# Lean into turns (bank
+	apply_torque(b.z * v.x * lean_strength)
