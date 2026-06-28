@@ -18,5 +18,5 @@ func _physics_process(_delta: float) -> void:
 		if not r.is_colliding(): return
 		var diff := r.get_collision_point() - r.global_position
 		var dist := diff.length()
-		self.apply_force(Vector3.UP / dist * 100, r.position)
+		self.apply_force(Vector3.UP / dist * 10, r.position)
 	
