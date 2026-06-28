@@ -29,5 +29,6 @@ func transition_to_scene(new_scene:PackedScene):
 	current_scene.start_anim()
 
 func _ready() -> void:
+	Global.menu_manager = self
 	if first_scene:
 		transition_to_scene(first_scene)

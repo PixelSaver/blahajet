@@ -1,11 +1,61 @@
 [gd_scene format=3 uid="uid://dv0k7gg363he"]
 
 [ext_resource type="Script" uid="uid://vkvh8s8y37ub" path="res://scenes/game/game.gd" id="1_sul5r"]
+[ext_resource type="PackedScene" uid="uid://dlp7dtyhhcr5v" path="res://scenes/game/jet.tscn" id="2_7h61r"]
+[ext_resource type="Texture2D" uid="uid://b2oese3sm7bus" path="res://assets/icon.svg" id="3_0sr1o"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7h61r"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0sr1o"]
+sky_material = SubResource("ProceduralSkyMaterial_7h61r")
+
+[sub_resource type="Environment" id="Environment_kelw5"]
+background_mode = 2
+sky = SubResource("Sky_0sr1o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7h61r"]
+albedo_texture = ExtResource("3_0sr1o")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7h61r"]
+data = PackedVector3Array(-196.5, -0.5, 181, -196.5, -0.5, -181, -196.5, 0.5, -181, 196.5, -0.5, -181, -196.5, -0.5, -181, -196.5, -0.5, 181, -196.5, 0.5, -181, -196.5, -0.5, -181, 196.5, -0.5, -181, -196.5, 0.5, -181, -196.5, 0.5, 181, -196.5, -0.5, 181, -196.5, -0.5, 181, -196.5, 0.5, 181, 196.5, 0.5, 181, 196.5, 0.5, 181, -196.5, 0.5, 181, -196.5, 0.5, -181, -196.5, -0.5, 181, 196.5, -0.5, 181, 196.5, -0.5, -181, 196.5, 0.5, 181, 196.5, -0.5, 181, -196.5, -0.5, 181, 196.5, -0.5, -181, 196.5, -0.5, 181, 196.5, 0.5, 181, 196.5, -0.5, -181, 196.5, 0.5, -181, -196.5, 0.5, -181, -196.5, 0.5, -181, 196.5, 0.5, -181, 196.5, 0.5, 181, 196.5, 0.5, 181, 196.5, 0.5, -181, 196.5, -0.5, -181)
 
 [node name="Game" type="Control" unique_id=1274959501]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_sul5r")
 metadata/_custom_type_script = "uid://e0s6oeo4pcwr"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1369812446]
+environment = SubResource("Environment_kelw5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=139974715]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="World" type="Node3D" parent="." unique_id=1320606803]
+
+[node name="Jet" parent="World" unique_id=1669828688 instance=ExtResource("2_7h61r")]
+center_of_mass_mode = 1
+can_sleep = false
+lock_rotation = true
+
+[node name="Camera3D" type="Camera3D" parent="World/Jet" unique_id=2072183332]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 4, 4)
+current = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World" unique_id=1838618448]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World/StaticBody3D" unique_id=779755930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+size = Vector3(393, 1, 362)
+material = SubResource("StandardMaterial3D_7h61r")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D" unique_id=1136681539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("ConcavePolygonShape3D_7h61r")

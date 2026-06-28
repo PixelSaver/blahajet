@@ -4,3 +4,5 @@ enum States {
 	START,
 }
 var state: States = States.START
+
+var menu_manager : PixelMenuManager

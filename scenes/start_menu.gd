@@ -2,6 +2,7 @@ extends PixelMenu
 class_name StartMenu
 
 @export var buttons: Array[Button]
+const GAME := preload("res://scenes/game/game.tscn")
 var ts : Array[Tweenable]
 var t : Tween
 
@@ -12,7 +13,7 @@ func _ready() -> void:
 func _on_button_pressed(_name) -> void:
 	match _name.to_lower():
 		"play":
-			pass
+			Global.menu_manager.transition_to_scene(GAME)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("w"):
@@ -29,4 +30,5 @@ func start_anim():
 
 
 func end_anim():
-	pass
+	self.hide()
+	queue_free()

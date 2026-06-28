@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dlp7dtyhhcr5v"]
+
+[ext_resource type="PackedScene" uid="uid://cfqdr7w7n1g8b" path="res://scenes/balaj.tscn" id="1_swopw"]
+[ext_resource type="Script" uid="uid://isorhmrrxq1i" path="res://scenes/game/jet.gd" id="1_w8r6l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gkedh"]
+radius = 1.0888672
+height = 6.669922
+
+[node name="Jet" type="RigidBody3D" unique_id=1669828688]
+script = ExtResource("1_w8r6l")
+
+[node name="Balaj" parent="." unique_id=2122927824 instance=ExtResource("1_swopw")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1314498919]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.0351574e-08, -0.2368164)
+shape = SubResource("CapsuleShape3D_gkedh")
