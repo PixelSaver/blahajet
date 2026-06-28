@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dv0k7gg363he"]
+
+[ext_resource type="Script" uid="uid://vkvh8s8y37ub" path="res://scenes/game/game.gd" id="1_sul5r"]
+
+[node name="Game" type="Control" unique_id=1274959501]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sul5r")
+metadata/_custom_type_script = "uid://e0s6oeo4pcwr"

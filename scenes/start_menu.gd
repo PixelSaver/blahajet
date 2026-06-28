@@ -1,8 +1,18 @@
 extends PixelMenu
 class_name StartMenu
 
+@export var buttons: Array[Button]
 var ts : Array[Tweenable]
 var t : Tween
+
+func _ready() -> void:
+	for but in buttons:
+		but.pressed.connect(_on_button_pressed.bind(but.name))
+
+func _on_button_pressed(_name) -> void:
+	match _name.to_lower():
+		"play":
+			pass
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("w"):
