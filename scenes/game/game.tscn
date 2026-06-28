@@ -70,7 +70,7 @@ shadow_enabled = true
 
 [node name="Camera3D2" type="Camera3D" parent="World" unique_id=1051531788]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071067, 0, -0.7071067, 0.7071068, 0, 12, 10)
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071067, 0, -0.7071067, 0.7071068, 0, 37, 10)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="World/Camera3D2" unique_id=370905649]
@@ -80,14 +80,19 @@ script = ExtResource("3_bdhmt")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Jet" parent="World" unique_id=1669828688 instance=ExtResource("2_7h61r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27, 0)
+gravity_scale = 1.0
 center_of_mass_mode = 1
+rest_length = 4.0
+spring_strength = 2.0
+spring_damping = 0.5
+upright_strength = 30.0
 
 [node name="Marker3D" type="Marker3D" parent="World/Jet" unique_id=47139897]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10)
 
 [node name="PhantomCamera3D" type="Node3D" parent="World" unique_id=409127102 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071067, 0, -0.7071067, 0.7071068, 0, 12, 10)
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071067, 0, -0.7071067, 0.7071068, 0, 37, 10)
 top_level = true
 script = ExtResource("6_87uf6")
 follow_mode = 2
@@ -102,7 +107,6 @@ align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World" unique_id=1838618448]
-visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="World/StaticBody3D" unique_id=779755930]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -114,6 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 shape = SubResource("ConcavePolygonShape3D_7h61r")
 
 [node name="ProceduralTerrain" type="StaticBody3D" parent="World" unique_id=1467204104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
 script = ExtResource("4_kelw5")
 height_scale = 10.0
 noise = SubResource("FastNoiseLite_kelw5")

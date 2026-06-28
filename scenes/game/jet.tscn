@@ -13,8 +13,10 @@ inertia = Vector3(1, 1, 1)
 linear_damp = 1.0
 angular_damp = 10.0
 script = ExtResource("1_w8r6l")
+rest_length = 10.0
+spring_strength = 1000.0
+spring_damping = 0.1
 raycasts = [NodePath("Rays/RFR"), NodePath("Rays/RFL"), NodePath("Rays/RBL"), NodePath("Rays/RBR")]
-mult = 132.735
 
 [node name="Balaj" parent="." unique_id=2122927824 instance=ExtResource("1_swopw")]
 
@@ -26,16 +28,16 @@ shape = SubResource("CapsuleShape3D_gkedh")
 
 [node name="RFR" type="RayCast3D" parent="Rays" unique_id=1639478850]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
-target_position = Vector3(0, -15, 0)
+target_position = Vector3(0, -20, 0)
 
 [node name="RFL" type="RayCast3D" parent="Rays" unique_id=2044982659]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
-target_position = Vector3(0, -15, 0)
+target_position = Vector3(0, -20, 0)
 
 [node name="RBL" type="RayCast3D" parent="Rays" unique_id=1165690531]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
-target_position = Vector3(0, -15, 0)
+target_position = Vector3(0, -20, 0)
 
 [node name="RBR" type="RayCast3D" parent="Rays" unique_id=1471205155]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
-target_position = Vector3(0, -15, 0)
+target_position = Vector3(0, -20, 0)
