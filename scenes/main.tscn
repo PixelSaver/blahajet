@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://q0esenm26lh6"]
+
+[ext_resource type="Script" uid="uid://bpo0dsawpb3qj" path="res://utilities/ui/pixel_menu_manager.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dbko80rshhdri" path="res://scenes/start_menu.tscn" id="2_0wfyh"]
+
+[node name="Main" type="Control" unique_id=1751880838]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+first_scene = ExtResource("2_0wfyh")
+metadata/_custom_type_script = "uid://bpo0dsawpb3qj"
