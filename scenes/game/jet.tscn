@@ -7,11 +7,33 @@
 radius = 1.0888672
 height = 6.669922
 
-[node name="Jet" type="RigidBody3D" unique_id=1669828688]
+[node name="Jet" type="RigidBody3D" unique_id=1669828688 node_paths=PackedStringArray("raycasts", "r_front", "r_left", "r_right")]
+inertia = Vector3(1, 1, 1)
+linear_damp = 1.0
+angular_damp = 1.0
 script = ExtResource("1_w8r6l")
+raycasts = [NodePath("Rays/RFront"), NodePath("Rays/RLeft"), NodePath("Rays/RRight")]
+r_front = NodePath("Rays/RFront")
+r_left = NodePath("Rays/RLeft")
+r_right = NodePath("Rays/RRight")
+mult = 132.735
 
 [node name="Balaj" parent="." unique_id=2122927824 instance=ExtResource("1_swopw")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1314498919]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.0351574e-08, -0.2368164)
 shape = SubResource("CapsuleShape3D_gkedh")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=546069753]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 4, 6)
+
+[node name="Rays" type="Node3D" parent="." unique_id=1621349365]
+
+[node name="RFront" type="RayCast3D" parent="Rays" unique_id=1639478850]
+target_position = Vector3(0, -5, 0)
+
+[node name="RLeft" type="RayCast3D" parent="Rays" unique_id=1165690531]
+target_position = Vector3(0, -5, 0)
+
+[node name="RRight" type="RayCast3D" parent="Rays" unique_id=1471205155]
+target_position = Vector3(0, -5, 0)
