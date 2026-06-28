@@ -83,8 +83,10 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27, 0)
 gravity_scale = 1.0
 center_of_mass_mode = 1
+linear_damp = 0.5
+angular_damp = 3.0
 rest_length = 4.0
-spring_strength = 2.0
+spring_strength = 5.0
 spring_damping = 0.5
 upright_strength = 30.0
 
